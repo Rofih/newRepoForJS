@@ -16,4 +16,46 @@ function getSquaredIntegers(lst_integers){
     });
     return result;
 };
-module.exports = {getTestScores,getGrades,getSquaredIntegers};
+function calculateExpenses(num){
+    let total = 0;
+    for(const property in num){
+        total += num[property];
+    }
+    return total;
+};
+function getLetterGrades(lst_scores){
+    let result = lst_scores.map((num)=> {
+        let answer = [];
+        let grade = "";
+        if (num >= 90 && num <= 100){
+            grade = "A";
+        }
+        if (num >= 80 && num <= 89){
+            grade = "B";
+        }
+        if (num >= 70 && num <= 79){
+            grade = "C";
+        }
+        if (num >= 60 && num <= 69){
+            grade = "D";
+        }
+        if (num < 60){
+            grade = "F";
+        }
+        return grade;
+    });
+    return result;
+};
+function getHealthyItems(obj){
+    let healthyItems = [];
+    obj.forEach((num)=> {
+        for(const property in num){
+            if(num[property] === true){
+                    healthyItems.push(num);
+            }
+        }
+    });
+    return healthyItems;
+
+};
+module.exports = {getTestScores,getGrades,getSquaredIntegers,calculateExpenses,getLetterGrades,getHealthyItems};
